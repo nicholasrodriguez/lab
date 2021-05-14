@@ -1,0 +1,6 @@
+---
+# Server network
+ipaddress: "{{ lookup('dig', 'razor') }}"
+
+# Server Serial, this will need to be updated
+serial_number: "VMware-56 4d e1 b0 1d 1a 0a a9-31 17 02 8f e2 2b 8a 1a"

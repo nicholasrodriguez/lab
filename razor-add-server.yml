@@ -1,0 +1,12 @@
+---
+- name: Config Razor Server
+  connection: ssh
+  gather_facts: true
+  hosts: razor_server[0]
+  become: True
+  roles:
+    - razor_add_server
+  vars_prompt:
+    - name: hostname
+      prompt: "What is the hostname of the server?"
+      private: no

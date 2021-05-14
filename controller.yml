@@ -1,0 +1,10 @@
+---
+- name: Configure the Ansible Controller
+  connection: ssh
+  gather_facts: True
+  hosts: controller
+  become: True
+  roles:
+    - lab_os_config
+    - centos_gui
+    - bertvv.dnsmasq

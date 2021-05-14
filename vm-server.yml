@@ -1,0 +1,9 @@
+---
+- name: Config Test Servers
+  connection: ssh
+  gather_facts: true
+  hosts: srv_vms
+  become: True
+  roles:
+    - lab_os_config
+    - centos_gui

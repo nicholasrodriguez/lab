@@ -1,0 +1,46 @@
+---
+## General Vars
+# Server creds
+ansible_ssh_user: "{{ lookup('env','LAB_USER') }}"
+remote_user: "{{ lookup('env','LAB_USER') }}"
+ansible_password: "{{ lookup('env','LAB_PW') }}"
+ansible_become_pass: "{{ lookup('env','LAB_PW') }}"
+
+## Razor Vars
+db_user: "razoru"
+db_name: "razordb"
+db_password: "{{ lookup('env','LAB_PW') }}"
+razoradmin: "razor_api_admin"
+razorupass:  "{{ lookup('env','LAB_USER') }}"
+razoradminpass:  "{{ lookup('env','LAB_USER') }}"
+razoruserpass:   "{{ lookup('env','LAB_USER') }}"
+
+# Centos Versions
+centos_versions:
+  - major: "8.3"
+    build: "CentOS-8.3-dvd"
+    url: "http://uk.mirrors.clouvider.net/CentOS/8.3.2011/isos/x86_64/CentOS-8.3.2011-x86_64-dvd1.iso"
+  #  Older ISOs obtained from here https://vault.centos.org/8.2.2004/isos/x86_64/
+  #  Its a slow public server hence uploading to lab_repo
+  - major: "8.2"
+    build: "CentOS-8.2-minimal"
+    url: "http://{{ lab_repo }}/repo/centos/CentOS-8.2.2004-x86_64-minimal.iso"
+  - major: "8.2"
+    build: "CentOS-8.2-dvd"
+    url: "http://{{ lab_repo }}/repo/centos/CentOS-8.2.2004-x86_64-dvd1.iso"
+
+# ESXi Versions
+esxi_versions:
+  - major: "6.5"
+    build: "ESXi-6.5.0-14320405"
+    url: "http://{{ lab_repo }}/repo/vmware/esxi/esxi6.5/VMware-VMvisor-Installer-201908001-14320405.x86_64.iso"
+  - major: "6.7"
+    build: "ESXi-6.7.0-15160138"
+    url: "http://{{ lab_repo }}/repo/vmware/esxi/esxi6.7/VMware-VMvisor-Installer-201912001-15160138.x86_64.iso"
+  - major: "7"
+    build: "ESXi-7.0.1-16850804"
+    url: "http://{{ lab_repo }}/repo/vmware/esxi/esxi7/VMware-VMvisor-Installer-7.0U1-16850804.x86_64.iso"
+
+# ESXi boot.cfg kernel parameters
+# Only set this to true in non-production environments
+allowLegacyCPU: true

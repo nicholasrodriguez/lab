@@ -1,0 +1,12 @@
+---
+- name: Config Razor Server
+  connection: ssh
+  gather_facts: true
+  hosts: razor
+  become: True
+  roles:
+    - lab_os_config
+    - tftp
+    - dhcp
+    - postgres
+    - razor

@@ -1,0 +1,27 @@
+---
+## General Vars
+# Server creds
+root_pw: "{{ lookup('env','LAB_PW') }}"
+user_pw: "{{ lookup('env','LAB_PW') }}"
+
+## Razor Vars
+# VM server OS Razor build vars
+repo: "CentOS-8.2-minimal"
+task: "centos/8"
+mgmt_nic: "ens192"
+
+# Default ESXi VM creation vars
+guest_id: 'centos8_64Guest'
+hardware:
+  memory_mb: 2
+  num_cpus: 1
+  num_cpu_cores_per_socket: 1
+  scsi: "paravirtual"
+  version: 14
+networks:
+  - name: 'lab_network'
+    device_type: 'vmxnet3'
+disk:
+  - size_gb: 64
+    type: thin
+    datastore: esx01_das01

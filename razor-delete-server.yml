@@ -1,0 +1,12 @@
+---
+- name: Delete Server from Razor
+  connection: ssh
+  gather_facts: true
+  hosts: razor_server[0]
+  become: True
+  roles:
+    - razor_delete_server
+  vars_prompt:
+    - name: hostname
+      prompt: "What is the hostname of the server?"
+      private: no

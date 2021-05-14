@@ -1,0 +1,37 @@
+---
+all:
+  hosts:
+    admin01:
+    razor:
+    esx01:
+    esx02:
+    esx03:
+    lhw01:
+    lhw02:
+    lhw03:
+    lvm01:
+    lvm02:
+    lvm03:
+  children:
+    controller:
+      hosts:
+        admin01:
+    razor_server:
+      hosts:
+        razor:
+    esxi:
+      hosts:
+        esx01:
+        esx02:
+        esx03:
+    srv_hw:
+      hosts:
+        lhw01:
+        lhw02:
+        lhw03:
+    srv_vms:
+      hosts:
+        razor:
+        lvm01:
+        lvm02:
+        lvm03:

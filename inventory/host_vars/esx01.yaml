@@ -1,0 +1,10 @@
+---
+# OS Razor build vars
+repo: "ESXi-7.0.1-16850804"
+task: "vmware_esxi/7"
+
+# Server network
+ipaddress: "{{ lookup('dig', 'esx01') }}"
+
+# Server Serial, this will need to be updated
+serial_number: "CZ222105HJ"

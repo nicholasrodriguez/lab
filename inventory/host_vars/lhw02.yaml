@@ -1,0 +1,6 @@
+---
+# Server network
+ipaddress: "{{ lookup('dig', 'lhw02') }}"
+
+# Server Serial, this will need to be updated
+serial_number: "CZ111100YZ"

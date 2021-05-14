@@ -1,0 +1,11 @@
+---
+## General Vars
+# Server creds
+root_pw: "{{ lookup('env','LAB_PW') }}"
+user_pw: "{{ lookup('env','LAB_PW') }}"
+
+## Razor Vars
+# Default ESXi server OS build vars
+repo: "ESXi-7.0.1-16850804"
+task: "vmware_esxi/7"
+mgmt_nic: "vmnic0"

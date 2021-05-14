@@ -1,0 +1,6 @@
+---
+# Server network
+ipaddress: "{{ lookup('dig', 'lvm03') }}"
+
+# Server Serial, this will need to be updated
+serial_number: ""

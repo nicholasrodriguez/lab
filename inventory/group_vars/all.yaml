@@ -1,0 +1,19 @@
+---
+## General Vars
+# Server creds
+ansible_ssh_user: "{{ lookup('env','LAB_USER') }}"
+remote_user: "{{ lookup('env','LAB_USER') }}"
+ansible_password: "{{ lookup('env','LAB_PW') }}"
+ansible_become_pass: "{{ lookup('env','LAB_PW') }}"
+
+# Lab environment
+domain: "{{ lookup('env','LAB_DOMAIN') }}"
+lab_subnet: "{{ lookup('env','LAB_SUBNET') }}"
+time1: "uk.pool.ntp.org"
+dns1: "{{ lookup('env','LAB_DNS1') }}"
+dns2: "{{ lookup('env','LAB_DNS2') }}"
+lab_repo: "{{ lookup('env','LAB_REPO') }}"
+
+## Razor Vars
+# Server OS Razor build vars
+broker: "noop"

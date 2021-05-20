@@ -14,6 +14,16 @@ dns1: "{{ lookup('env','LAB_DNS1') }}"
 dns2: "{{ lookup('env','LAB_DNS2') }}"
 lab_repo: "{{ lookup('env','LAB_REPO') }}"
 
+# Lab OS Config Vars
+ntp_enabled: True
+ntp_timezone: "Europe/London"
+ntp_package: "chrony"
+ntp_area: "uk"
+ntp_manage_config: True
+ntp_servers:
+  - "0{{ '.' + ntp_area if ntp_area else '' }}.pool.ntp.org iburst"
+  - "1{{ '.' + ntp_area if ntp_area else '' }}.pool.ntp.org iburst"
+
 ## Razor Vars
 # Server OS Razor build vars
 broker: "noop"

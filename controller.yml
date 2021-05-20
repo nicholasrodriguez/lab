@@ -7,4 +7,4 @@
   roles:
     - lab_os_config
     - centos_gui
-    - bertvv.dnsmasq
+    - dnsmasq

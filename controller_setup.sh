@@ -32,6 +32,10 @@ if ! dnf list installed atom; then
     dnf -y localinstall ~/atom.rpm
 fi
 
+# Install Ansible roles
+
+ansible-galaxy install -r requirements.yml
+
 # Get Lab Variables
 
 if ! grep "LAB_USER" /etc/environment; then

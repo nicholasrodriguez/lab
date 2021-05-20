@@ -16,7 +16,7 @@ To boot strap the lab into existence it requires the following:
 * A web service to host ISOs or binaries for local download and use
 * A Lab subnet different and accessable from your main home subnet to avoid issues of the Lab issuing DHCP leases to home devices
 * Outbound Internet access from the Lab subnet to obtain packages, binaries and OS updates
-* A DNS service that can resolve the lab servers or use the DNSMASQ playbook in this repo to install on the Ansible controller
+* A DNS service that can resolve the lab servers or use the DNSMASQ playbook in this repo to install on the Ansible controller and act as a forwarder outside of the lab environment
 * The running of the controller_setup.sh script in this repo on the Ansible controller to install the required components, capture Lab specific variables, capture credentials for the running of the various Ansible roles
 
 # Lab Components and Operation
@@ -86,14 +86,15 @@ The user name and password are captured during the controller node setup process
 
 Each role has a README describing details on the component or service it is deploying or configuring with links to the source information. Featured Roles are:
 
-* base_os
+* lab_os_config - from nicholasrodriguez.lab_os_config
+  * requires ntp from geerlingguy.ntp
 * dhcp
 * tftp
 * postgres
 * razor
 * razor-add-server
 * razor-delete-server
-* bertvv.dnsmasq from Ansible Galaxy
+* dnsmasq from bertvv.dnsmasq
 
 # TODO - Future Lab Automation Candidates
 

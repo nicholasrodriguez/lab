@@ -9,7 +9,6 @@ ansible_become_pass: "{{ lookup('env','LAB_PW') }}"
 # Lab environment
 domain: "{{ lookup('env','LAB_DOMAIN') }}"
 lab_subnet: "{{ lookup('env','LAB_SUBNET') }}"
-time1: "uk.pool.ntp.org"
 dns1: "{{ lookup('env','LAB_DNS1') }}"
 dns2: "{{ lookup('env','LAB_DNS2') }}"
 lab_repo: "{{ lookup('env','LAB_REPO') }}"
@@ -23,6 +22,7 @@ ntp_manage_config: True
 ntp_servers:
   - "0{{ '.' + ntp_area if ntp_area else '' }}.pool.ntp.org iburst"
   - "1{{ '.' + ntp_area if ntp_area else '' }}.pool.ntp.org iburst"
+install_gui: False
 
 ## Razor Vars
 # Server OS Razor build vars

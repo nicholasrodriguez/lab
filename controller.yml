@@ -6,4 +6,4 @@
   become: True
   roles:
     - lab_os_config
-    - dnsmasq
+    - bertvv.dnsmasq

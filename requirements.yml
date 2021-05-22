@@ -2,6 +2,6 @@
 - src: nicholasrodriguez.lab_os_config
   name: lab_os_config
 - src: geerlingguy.ntp
-  name: ntp
+  name: geerlingguy.ntp
 - src: bertvv.dnsmasq
-  name: dnsmasq
+  name: bertvv.dnsmasq

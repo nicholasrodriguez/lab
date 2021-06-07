@@ -7,3 +7,5 @@
   name: bertvv.dnsmasq
 - src: nicholasrodriguez.tftp
   name: tftp
+- src: nicholasrodriguez.dhcp
+  name: dhcp

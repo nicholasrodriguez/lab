@@ -5,3 +5,7 @@
   name: geerlingguy.ntp
 - src: bertvv.dnsmasq
   name: bertvv.dnsmasq
+- src: nicholasrodriguez.tftp
+  name: tftp
+- src: nicholasrodriguez.dhcp
+  name: dhcp

@@ -29,7 +29,7 @@ postgresql_users:
     db: razordb
     state: 'present'
 
-# Old Postgres Role Vars - To be deleted
+# Razor config Vars
 db_user: "razoru"
 db_name: "razordb"
 db_password: "{{ lookup('env','LAB_PW') }}"

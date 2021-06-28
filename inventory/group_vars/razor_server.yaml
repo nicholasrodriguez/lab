@@ -13,6 +13,23 @@ postgresql_hba_entries:
   - { type: host, database: all, user: all, address: '::1/128', auth_method: md5 }
 postgresql_locales:
   - 'en_GB.UTF-8'
+postgresql_user: postgres
+postgresql_group: postgres
+postgresql_databases:
+  - name: razordb
+    lc_collate: 'en_GB.UTF-8'
+    lc_ctype: 'en_GB.UTF-8'
+    encoding: 'UTF-8'
+    template: 'template0'
+    state: 'present'
+postgresql_users:
+  - name: razoru
+    password: "{{ lookup('env','LAB_PW') }}"
+    priv: ALL
+    db: razordb
+    state: 'present'
+
+# Old Postgres Role Vars - To be deleted
 db_user: "razoru"
 db_name: "razordb"
 db_password: "{{ lookup('env','LAB_PW') }}"

@@ -13,6 +13,9 @@ dns1: "{{ lookup('env','LAB_DNS1') }}"
 dns2: "{{ lookup('env','LAB_DNS2') }}"
 lab_repo: "{{ lookup('env','LAB_REPO') }}"
 
+# Lab OS kickstart vars
+time1: 0.uk.pool.ntp.org
+
 # Lab OS Config Vars
 ntp_enabled: True
 ntp_timezone: "Europe/London"

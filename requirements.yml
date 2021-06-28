@@ -9,3 +9,5 @@
   name: tftp
 - src: nicholasrodriguez.dhcp
   name: dhcp
+- src: geerlingguy.postgresql
+  name: geerlingguy.postgresql

@@ -16,26 +16,20 @@ postgresql_locales:
 postgresql_user: postgres
 postgresql_group: postgres
 postgresql_databases:
-  - name: razordb
+  - name: razor
     lc_collate: 'en_GB.UTF-8'
     lc_ctype: 'en_GB.UTF-8'
     encoding: 'UTF-8'
     template: 'template0'
     state: 'present'
 postgresql_users:
-  - name: razoru
+  - name: razor
     password: "{{ lookup('env','LAB_PW') }}"
     priv: ALL
-    db: razordb
+    db: razor
     state: 'present'
 
-# Razor config Vars
-db_user: "razoru"
-db_name: "razordb"
-db_password: "{{ lookup('env','LAB_PW') }}"
-
 ## Razor Vars
-
 razoradmin: "razor_api_admin"
 razorupass:  "{{ lookup('env','LAB_USER') }}"
 razoradminpass:  "{{ lookup('env','LAB_USER') }}"

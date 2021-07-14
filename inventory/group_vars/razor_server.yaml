@@ -6,7 +6,31 @@ remote_user: "{{ lookup('env','LAB_USER') }}"
 ansible_password: "{{ lookup('env','LAB_PW') }}"
 ansible_become_pass: "{{ lookup('env','LAB_PW') }}"
 
-## Postgres Vars
+## Razor Vars
+razor_db_name: "razor"
+razor_db_user_name: "razor"
+razor_db_user_pw: "{{ lookup('env','LAB_PW') }}"
+razor_service_user: "razor"
+razor_service_user_pw: "{{ lookup('env','LAB_PW') }}"
+razor_api_roles:
+  - role_name: "admin"
+    role_scope: "*"
+  - role_name: "user"
+    role_scope: "query:*"
+razor_api_users:
+  - api_user_name: "razor_api_admin"
+    api_user_pw: "{{ lookup('env','LAB_PW') }}"
+    api_user_roles: "admin"
+  - api_user_name: "razor_api_user"
+    api_user_pw: "{{ lookup('env','LAB_PW') }}"
+    api_user_roles: "user"
+
+razor_api_admin: "razor_api_admin"
+razor_api_admin_pw: "{{ lookup('env','LAB_PW') }}"
+razor_api_user:  "razor_api_user"
+razor_api_user_pw: "{{ lookup('env','LAB_PW') }}"
+
+## Razor Postgres Vars
 postgresql_hba_entries:
   - { type: local, database: all, user: all, auth_method: peer }
   - { type: host, database: all, user: all, address: '127.0.0.1/32', auth_method: md5 }
@@ -16,24 +40,18 @@ postgresql_locales:
 postgresql_user: postgres
 postgresql_group: postgres
 postgresql_databases:
-  - name: razor
+  - name: "{{ razor_db_name }}"
     lc_collate: 'en_GB.UTF-8'
     lc_ctype: 'en_GB.UTF-8'
     encoding: 'UTF-8'
     template: 'template0'
     state: 'present'
 postgresql_users:
-  - name: razor
-    password: "{{ lookup('env','LAB_PW') }}"
+  - name: "{{ razor_db_user_name }}"
+    password: "{{ razor_db_user_pw }}"
     priv: ALL
     db: razor
     state: 'present'
-
-## Razor Vars
-razoradmin: "razor_api_admin"
-razorupass:  "{{ lookup('env','LAB_USER') }}"
-razoradminpass:  "{{ lookup('env','LAB_USER') }}"
-razoruserpass:   "{{ lookup('env','LAB_USER') }}"
 
 # Centos Versions
 centos_versions:

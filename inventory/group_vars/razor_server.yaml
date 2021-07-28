@@ -7,6 +7,7 @@ ansible_password: "{{ lookup('env','LAB_PW') }}"
 ansible_become_pass: "{{ lookup('env','LAB_PW') }}"
 
 ## Razor Vars
+tftp_root_directory:  "/var/lib/tftpboot"
 razor_db_name: "razor"
 razor_db_user_name: "razor"
 razor_db_user_pw: "{{ lookup('env','LAB_PW') }}"

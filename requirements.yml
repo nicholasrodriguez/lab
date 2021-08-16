@@ -11,3 +11,5 @@
   name: dhcp
 - src: geerlingguy.postgresql
   name: geerlingguy.postgresql
+- src: nicholasrodriguez.razor
+  name: razor

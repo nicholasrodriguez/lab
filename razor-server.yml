@@ -10,3 +10,4 @@
     - dhcp
     - postgres
     - razor
+    - razor_tasks_esxi

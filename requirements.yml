@@ -13,3 +13,6 @@
   name: geerlingguy.postgresql
 - src: nicholasrodriguez.razor
   name: razor
+- src: nicholasrodriguez.razor_tasks_esxi
+  name: razor_tasks_esxi
+

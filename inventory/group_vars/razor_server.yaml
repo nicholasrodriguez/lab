@@ -50,12 +50,15 @@ postgresql_users:
     state: 'present'
 
 # Centos Versions
+#  Older ISOs obtained from here https://vault.centos.org/8.2.2004/isos/x86_64/
+#  Its a slow public server hence uploading to lab_repo
 centos_versions:
-  - major: "8.3"
-    build: "CentOS-8.3-dvd"
-    url: "http://uk.mirrors.clouvider.net/CentOS/8.3.2011/isos/x86_64/CentOS-8.3.2011-x86_64-dvd1.iso"
-  #  Older ISOs obtained from here https://vault.centos.org/8.2.2004/isos/x86_64/
-  #  Its a slow public server hence uploading to lab_repo
+  - major: "7.9"
+    build: "CentOS-7.9-dvd"
+    url: "http://{{ lab_repo }}/repo/centos/CentOS-7-x86_64-DVD-2009.iso"
+  - major: "7.9"
+    build: "CentOS-7.9-minimal"
+    url: "http://{{ lab_repo }}/repo/centos/CentOS-7-x86_64-Minimal-2009.iso"
   - major: "8.2"
     build: "CentOS-8.2-minimal"
     url: "http://{{ lab_repo }}/repo/centos/CentOS-8.2.2004-x86_64-minimal.iso"

@@ -8,7 +8,7 @@
     - lab_os_config
     - tftp
     - dhcp
-    - postgres
+    - geerlingguy.postgresql
     - razor
     - razor_tasks_esxi
     - razor_tasks_centos

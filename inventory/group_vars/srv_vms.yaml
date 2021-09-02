@@ -7,7 +7,7 @@ user_pw: "{{ lookup('env','LAB_PW') }}"
 ## Razor Vars
 # VM server OS Razor build vars
 repo: "CentOS-8.2-minimal"
-task: "centos/8"
+task: "centos/8.2"
 mgmt_nic: "ens192"
 
 # Default ESXi VM creation vars

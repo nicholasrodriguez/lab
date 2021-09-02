@@ -11,3 +11,4 @@
     - postgres
     - razor
     - razor_tasks_esxi
+    - razor_tasks_centos

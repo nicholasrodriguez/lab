@@ -15,4 +15,5 @@
   name: razor
 - src: nicholasrodriguez.razor_tasks_esxi
   name: razor_tasks_esxi
-
+- src: nicholasrodriguez.razor_tasks_centos
+  name: razor_tasks_centos

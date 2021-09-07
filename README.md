@@ -1,6 +1,3 @@
-# Repo under construction from a private dev repo that had embedded roles
-# Required roles are being migrated into Ansible Galaxy
-
 # Ansible-lab
 
 # Summary
@@ -98,13 +95,13 @@ Each role has a README describing details on the component or service it is depl
 
 # TODO - Future Lab Automation Candidates
 
-- [ ] Improve bootstrap mechanism and capture of vars, update hosts with lab domain
+- [x] Improve bootstrap mechanism and capture of vars, update hosts with lab domain
 - [ ] Add some sort of CMDB or key/value source to replace reading of variables from environment variables
      * Redis
      * ...
-- [ ] Push the roles into Ansible Galaxy
-- [ ] Separate the Razor Repo and Task creation from the main playbook into different Roles
-- [ ] Separate Razor Server hardening Role from the main Razor server creation role
+- [x] Push the roles into Ansible Galaxy
+- [x] Separate the Razor Repo and Task creation from the main playbook into different Roles
+- [x] Separate Razor Server hardening Role from the main Razor server creation role
 - [X] Add ESXi server provisioning into Razor
 - [ ] Add Ubuntu server provisioning into Razor
 - [ ] Add VM creation on ESXi via Ansible

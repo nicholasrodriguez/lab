@@ -17,3 +17,5 @@
   name: razor_tasks_esxi
 - src: nicholasrodriguez.razor_tasks_centos
   name: razor_tasks_centos
+- src: nicholasrodriguez.razor_manage_hosts
+  name: razor_manage_hosts

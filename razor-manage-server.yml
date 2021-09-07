@@ -1,12 +1,15 @@
 ---
-- name: Delete Server from Razor
+- name: Config Razor Server
   connection: ssh
   gather_facts: true
-  hosts: razor_server[0]
+  hosts: razor
   become: True
   roles:
-    - razor_delete_server
+    - razor_manage_hosts
   vars_prompt:
+    - name: add_or_delete
+      prompt: "Add or Delete a host in Razor [add/del]?"
+      private: no
     - name: hostname
       prompt: "What is the hostname of the server?"
       private: no

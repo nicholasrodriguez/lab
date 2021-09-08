@@ -12,6 +12,9 @@ lab_subnet: "{{ lookup('env','LAB_SUBNET') }}"
 dns1: "{{ lookup('env','LAB_DNS1') }}"
 dns2: "{{ lookup('env','LAB_DNS2') }}"
 lab_repo: "{{ lookup('env','LAB_REPO') }}"
+gateway: "{{ lab_subnet | ipaddr(1) | ipaddr('address') }}"
+netmask: "{{ lab_subnet | ipaddr('netmask') }}"
+user_name: "{{ lookup('env','LAB_USER') }}"
 
 # Lab OS kickstart vars
 time1: 0.uk.pool.ntp.org

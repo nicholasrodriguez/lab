@@ -1,5 +1,5 @@
 ---
-## General Vars
+## General Vars for the Razor server Group
 # Server creds
 ansible_ssh_user: "{{ lookup('env','LAB_USER') }}"
 remote_user: "{{ lookup('env','LAB_USER') }}"

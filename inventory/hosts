@@ -26,12 +26,12 @@ all:
         esx03:
     srv_hw:
       hosts:
+        razor:
         lhw01:
         lhw02:
         lhw03:
     srv_vms:
       hosts:
-        razor:
         lvm01:
         lvm02:
         lvm03:

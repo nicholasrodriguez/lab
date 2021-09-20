@@ -4,8 +4,35 @@
 root_pw: "{{ lookup('env','LAB_PW') }}"
 user_pw: "{{ lookup('env','LAB_PW') }}"
 
+validate_certs: False
+
 ## Razor Vars
 # Default ESXi server OS build vars
 repo: "ESXi-7.0.1-16850804"
 task: "vmware_esxi/7"
 mgmt_nic: "vmnic0"
+
+# Network Lab Setup
+vswitches:
+  - name: vSwitch0
+    vmnics:
+      - vmnic0
+    portgroups:
+      - name: 'Management Network'
+        vlan: 0
+  - name: lab_admin
+    vmnics:
+      - vmnic1
+    portgroups:
+      - name: lab_admin
+        vlan: 0
+  - name: lab_dev
+    vmnics:
+      - vmnic2
+    portgroups:
+      - name: lab_dev
+        vlan: 100
+      - name: test
+        vlan: 200
+
+storage:

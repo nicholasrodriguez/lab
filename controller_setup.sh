@@ -32,6 +32,10 @@ if ! dnf list installed atom; then
     dnf -y localinstall ~/atom.rpm
 fi
 
+# Install VMware Python requirements
+
+pip3 install --upgrade pyvmomi pyvim requests
+
 # Install Ansible roles
 
 ansible-galaxy install -r requirements.yml

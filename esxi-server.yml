@@ -1,0 +1,37 @@
+---
+- name: Config ESXi Server
+  connection: 'local'
+  gather_facts: False
+  hosts: '{{ target_esxi_server }}'
+  vars_prompt:
+    - name: target_esxi_server
+      prompt: "Which ESXi server should be configured?"
+      private: no
+  tasks:
+    - name: Create Local vSwitches
+      vmware_vswitch:
+        hostname: '{{ target_esxi_server }}'
+        username: 'root'
+        password: "{{ root_pw }}"
+        validate_certs: '{{ validate_certs }}'
+        state: 'present'
+        switch: '{{ item.name }}'
+        mtu: 9000
+        nics:
+          - '{{ item.vmnics[0] }}'
+      loop: '{{ vswitches }}'
+
+    - name: Create Local Port Groups
+      vmware_portgroup:
+        hostname: '{{ target_esxi_server }}'
+        hosts: '{{ target_esxi_server }}'
+        username: 'root'
+        password: "{{ root_pw  }}"
+        validate_certs: '{{ validate_certs }}'
+        state: 'present'
+        switch_name: '{{ vswitch.0.name }}'
+        portgroup_name: '{{ vswitch.1.name }}'
+        vlan_id: '{{ vswitch.1.vlan }}'
+      loop: "{{ vswitches | subelements('portgroups') }}"
+      loop_control:
+        loop_var: vswitch

@@ -3,7 +3,7 @@
 ipaddress: "{{ lookup('dig', 'razor') }}"
 
 # Server Serial, this will need to be updated
-serial_number: "ptsemec00303908bde2700"
+serial_number: "PTSEMEC00303908BDE2700"
 
 # NIC
 mgmt_nic: "ens35"

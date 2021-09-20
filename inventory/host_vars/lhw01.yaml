@@ -3,4 +3,4 @@
 ipaddress: "{{ lookup('dig', 'lhw01') }}"
 
 # Server Serial, this will need to be updated
-serial_number: "CZ111100YZ"
+serial_number: "CZ222105HJ"

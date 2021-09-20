@@ -1,5 +1,5 @@
 ---
-## General Vars
+## General Vars for the Ansible Controller
 # Server creds
 ansible_ssh_user: "{{ lookup('env','LAB_USER') }}"
 remote_user: "{{ lookup('env','LAB_USER') }}"

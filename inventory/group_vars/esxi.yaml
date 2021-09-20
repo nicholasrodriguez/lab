@@ -1,5 +1,5 @@
 ---
-## General Vars
+## General Vars for ESXi servers
 # Server creds
 root_pw: "{{ lookup('env','LAB_PW') }}"
 user_pw: "{{ lookup('env','LAB_PW') }}"

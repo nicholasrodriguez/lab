@@ -10,18 +10,21 @@ repo: "CentOS-8.2-minimal"
 task: "centos/8.2"
 mgmt_nic: "ens192"
 
+# Default target ESXi server
+target_esxi: '{{ esxi[0] }}'
+
 # Default ESXi VM creation vars
 guest_id: 'centos8_64Guest'
 hardware:
-  memory_mb: 2
-  num_cpus: 1
+  memory_mb: 2048
+  num_cpus: 2
   num_cpu_cores_per_socket: 1
   scsi: "paravirtual"
   version: 14
 networks:
-  - name: 'lab_network'
+  - name: 'lab_dev'
     device_type: 'vmxnet3'
-disk:
+disk_list:
   - size_gb: 64
     type: thin
-    datastore: esx01_das01
+    datastore: '{{ target_esxi}}_das01'

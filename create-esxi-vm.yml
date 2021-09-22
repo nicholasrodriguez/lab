@@ -16,7 +16,6 @@
         hostname: '{{ target_esxi }}.{{ domain}}'
         username: 'root'
         password: '{{ root_pw }}'
-        #datacenter: '{{ datacenter_name }}'
         esxi_hostname : '{{ target_esxi }}.{{ domain}}'
         folder: '/ha-datacenter/vm'
         datastore: '{{ target_esxi }}_das01'

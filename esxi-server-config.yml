@@ -1,0 +1,98 @@
+---
+- name: Config ESXi Server
+  connection: 'local'
+  gather_facts: False
+  hosts: '{{ target_esxi_server }}'
+  vars_prompt:
+    - name: target_esxi_server
+      prompt: "Which ESXi server should be configured?"
+      private: no
+    # TODO need ESXi host only licence module
+    # - name: esxi_licence
+    #   prompt: "Input ESXi licence"
+    #   private: no
+  tasks:
+    - name: Create Local vSwitches
+      vmware_vswitch:
+        hostname: '{{ target_esxi_server }}'
+        username: 'root'
+        password: "{{ root_pw }}"
+        validate_certs: '{{ validate_certs }}'
+        state: 'present'
+        switch: '{{ item.name }}'
+        mtu: 9000
+        nics:
+          - '{{ item.vmnics[0] }}'
+      loop: '{{ vswitches }}'
+      tags:
+        - esxi_net
+
+    - name: Create Local Port Groups
+      vmware_portgroup:
+        hostname: '{{ target_esxi_server }}'
+        hosts: '{{ target_esxi_server }}'
+        username: 'root'
+        password: "{{ root_pw  }}"
+        validate_certs: '{{ validate_certs }}'
+        state: 'present'
+        switch_name: '{{ vswitch.0.name }}'
+        portgroup_name: '{{ vswitch.1.name }}'
+        vlan_id: '{{ vswitch.1.vlan }}'
+      loop: "{{ vswitches | subelements('portgroups') }}"
+      loop_control:
+        loop_var: vswitch
+      tags:
+        - esxi_net
+
+    - name: Set ESXi DNS
+      vmware_dns_config:
+        hostname: '{{ target_esxi_server }}'
+        username: 'root'
+        password: "{{ root_pw }}"
+        change_hostname_to: '{{ target_esxi_server }}'
+        domainname: '{{ domain }}'
+        dns_servers:
+            - '{{ dns1 }}'
+            - '{{ dns2 }}'
+        validate_certs: '{{ validate_certs }}'
+      tags:
+        - esxi_dns
+
+    - name: 'Set ESXi NTP'
+      vmware_host_ntp:
+        hostname: '{{ target_esxi_server }}'
+        username: 'root'
+        password: "{{ root_pw }}"
+        esxi_hostname: '{{ target_esxi_server }}'
+        state: 'present'
+        validate_certs: '{{ validate_certs }}'
+        ntp_servers:
+          - '{{ time1 }}'
+      tags:
+        - esxi_ntp
+
+    - name: 'Set NTP service'
+      vmware_host_service_manager:
+        hostname: '{{ target_esxi_server }}'
+        username: 'root'
+        password: "{{ root_pw }}"
+        esxi_hostname: '{{ target_esxi_server }}'
+        validate_certs: '{{ validate_certs }}'
+        state: 'present'
+        service_name: 'ntpd'
+        service_policy: 'on'
+      tags:
+        - esxi_ntp
+
+    # TODO need ESXi host only licence module
+    # - name: Set ESXi license
+    #   vcenter_license:
+    #     hostname: '{{ target_esxi_server }}'
+    #     username: 'root'
+    #     password: '{{ root_pw }}'
+    #     esxi_hostname: '{{ target_esxi_server }}'
+    #     license: '{{ esxi_licence }}'
+    #     validate_certs: '{{ validate_certs }}'
+    #     state: present
+    #   tags:
+    #     - esxi_licence

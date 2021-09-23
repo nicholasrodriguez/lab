@@ -1,0 +1,5 @@
+---
+kubernetes_pod_network:
+  # Flannel CNI.
+  cni: 'flannel'
+  cidr: '192.168.100.128/25'  

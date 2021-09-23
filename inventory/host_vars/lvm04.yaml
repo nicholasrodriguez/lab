@@ -1,9 +1,9 @@
 ---
 # Server network
-ipaddress: "{{ lookup('dig', 'lvm02') }}"
+ipaddress: "{{ lookup('dig', 'lvm04') }}"
 
 # Server Serial, this will need to be updated
-serial_number: "VMware-56 4d 69 a6 61 06 b9 83-34 48 30 2e cf da 3c 95"
+serial_number: ""
 
 # K8 Node Identifier
 kubernetes_role: "node"

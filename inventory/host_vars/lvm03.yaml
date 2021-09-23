@@ -4,3 +4,6 @@ ipaddress: "{{ lookup('dig', 'lvm03') }}"
 
 # Server Serial, this will need to be updated
 serial_number: ""
+
+# K8 Node Identifier
+kubernetes_role: "node"

@@ -1,0 +1,9 @@
+---
+- name: Create a K8 cluster
+  connection: 'ssh'
+  gather_facts: True
+  hosts: k8_cluster
+  become: True
+  roles:
+    - geerlingguy.docker
+    - geerlingguy.kubernetes

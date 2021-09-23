@@ -12,6 +12,7 @@ all:
     lvm01:
     lvm02:
     lvm03:
+    lvm04:
   children:
     controller:
       hosts:
@@ -35,3 +36,10 @@ all:
         lvm01:
         lvm02:
         lvm03:
+        lvm04:
+    k8_cluster:
+      hosts:
+        lvm01:
+        lvm02:
+        lvm03:
+        lvm04:

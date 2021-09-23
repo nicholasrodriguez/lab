@@ -19,3 +19,7 @@
   name: razor_tasks_centos
 - src: nicholasrodriguez.razor_manage_hosts
   name: razor_manage_hosts
+- src: geerlingguy.kubernetes
+  name: geerlingguy.kubernetes
+- src: geerlingguy.docker
+  name: geerlingguy.docker 

@@ -1,0 +1,44 @@
+---
+# 4210A378-3461-F83A-258F-4B66C970D9AA
+# VMware-42 10 a3 78 34 61 f8 3a-25 8f 4b 66 c9 70 d9 aa
+- name: Re-write UUID
+  connection: 'local'
+  gather_facts: False
+  hosts: localhost
+  vars:
+    uuid: 4210A378-3461-F83A-258F-4B66C970D9AA
+  tasks:
+    - name: set 1
+      set_fact:
+        uuid_test1: "{{ uuid | regex_replace('-','') }}"
+    - name: debug 1
+      debug:
+        msg: "VMware-{{ uuid_test1 }}"
+
+    - name: set 2
+      set_fact:
+        uuid_test2: "{{ uuid[:24] }}-{{ uuid[23:] }}"
+    - name: debug 2
+      debug:
+        msg: "VMware-{{ uuid_test2 }}"
+
+    - name: set 3
+      set_fact:
+        uuid_test3: "{{ uuid_test1 | regex_replace('(?<=.)(?!$)',' ') }}"
+    - name: debug 3
+      debug:
+        msg: "VMware-{{ uuid_test3 }}"
+
+    - name: set 4
+      set_fact:
+        uuid_test4: "{{ uuid | regex_replace('/d{2}(?=.)/g',' ') }}"
+    - name: debug 4
+      debug:
+        msg: "VMware-{{ uuid_test4 }}"
+
+    - name: set 5
+      set_fact:
+        uuid_test5: "{{ uuid_test1 | regex_replace('/(\\d{2})(?=(\\d{1})+(?!\\d))/g', ' ') }}"
+    - name: debug 5
+      debug:
+        msg: "VMware-{{ uuid_test5 }}"

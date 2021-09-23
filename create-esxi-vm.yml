@@ -1,5 +1,5 @@
 ---
-- name: Config ESXi Server
+- name: Create a Lab VM on ESXi
   connection: 'local'
   gather_facts: False
   hosts: '{{ target_vm }}'
@@ -13,17 +13,17 @@
   tasks:
     - name: Create a VM
       vmware_guest:
-        hostname: '{{ target_esxi }}.{{ domain}}'
+        hostname: '{{ target_esxi }}.{{ domain }}'
         username: 'root'
         password: '{{ root_pw }}'
-        esxi_hostname : '{{ target_esxi }}.{{ domain}}'
+        esxi_hostname : '{{ target_esxi }}.{{ domain }}'
         folder: '/ha-datacenter/vm'
         datastore: '{{ target_esxi }}_das01'
         validate_certs: '{{ validate_certs }}'
         name: '{{ target_vm }}'
         state: 'poweredoff'
         guest_id: '{{ guest_id }}'
-        disk: '{{ disk_list  }}'
+        disk: '{{ disk_list }}'
         hardware: '{{ hardware }}'
         networks: '{{ networks }}'
       register: vm

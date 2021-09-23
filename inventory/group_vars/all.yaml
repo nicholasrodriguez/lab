@@ -33,3 +33,5 @@ install_gui: False
 ## Razor Vars
 # Server OS Razor build vars
 broker: "noop"
+
+validate_certs: False

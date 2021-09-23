@@ -1,5 +1,5 @@
 ---
-- name: Config ESXi Server
+- name: Configure a Lab ESXi Server
   connection: 'local'
   gather_facts: False
   hosts: '{{ target_esxi_server }}'

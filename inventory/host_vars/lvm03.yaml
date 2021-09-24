@@ -3,7 +3,18 @@
 ipaddress: "{{ lookup('dig', 'lvm03') }}"
 
 # Server Serial, this will need to be updated
-serial_number: ""
+serial_number: "VMware-56 4d d6 1e f3 2d 55 7a-b4 8b 5f 97 26 ec b5 70"
+
+# ESXi build parameters
+target_esxi: 'esx02'
+
+guest_id: 'centos7_64Guest'
+hardware:
+  memory_mb: 2048
+  num_cpus: 2
+  num_cpu_cores_per_socket: 1
+  scsi: "paravirtual"
+  version: 13
 
 # K8 Node Identifier
 kubernetes_role: "node"
